@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>性格診断テスト</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 20px;
+        }
+        h1 {
+            color: #007bff;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        p {
+            font-size: 16px;
+        }
+        label {
+            margin-left: 8px;
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 22px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            background-color: #eee;
+            border-radius: 50%;
+        }
+        input:checked ~ .checkmark {
+            background-color: #2196F3;
+        }
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        input:checked ~ .checkmark:after {
+            display: block;
+        }
+        .checkmark:after {
+            top: 9px;
+            left: 9px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: white;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        function showResult(event) {
+            var agreeCount = 0;
+            var totalQuestions = 10;
+            var answeredQuestions = 0;
+
+            for (var i = 1; i <= totalQuestions; i++) {
+                if(document.getElementById('q' + i + '-1').checked) {
+                    agreeCount++;
+                    answeredQuestions++;
+                } else if(document.getElementById('q' + i + '-2').checked) {
+                    answeredQuestions++;
+                } else if(document.getElementById('q' + i + '-3').checked) {
+                    answeredQuestions++;
+                }
+            }
+
+            if(answeredQuestions < totalQuestions) {
+                alert('全て選択しなさい💢');
+                event.preventDefault(); // フォームの送信を防ぐ
+                return false;
+            }
+
+            if(agreeCount > 5) {
+                window.location.href = "1.html";
+            } else {
+                window.location.href = "2.html";
+            }
+            event.preventDefault(); // フォームの送信を防ぐ
+        }
+    </script>
+</head>
+<body>
+    <h1>性格診断テスト</h1>
+    <form onsubmit="showResult(event)">
+        <p>質問1: ワクチンは危険である</p>
+        <label for="q1-1">同意<input type="radio" id="q1-1" name="q1" value="同意"><span class="checkmark"></span></label>
+        <label for="q1-2">どちらでもない<input type="radio" id="q1-2" name="q1" value="どちらでもない"><span class="checkmark"></span></label>
+        <label for="q1-3">同意しない<input type="radio" id="q1-3" name="q1" value="同意しない"><span class="checkmark"></span></label>
+
+        <p>質問2: 2020年の大統領選挙に不正はあった</p>
+        <label for="q2-1">同意<input type="radio" id="q2-1" name="q2" value="同意"><span class="checkmark"></span></label>
+        <label for="q2-2">どちらでもない<input type="radio" id="q2-2" name="q2" value="どちらでもない"><span class="checkmark"></span></label>
+        <label for="q2-3">同意しない<input type="radio" id="q2-3" name="q2" value="同意しない"><span class="checkmark"></span></label>
+
+        <p>質問3: 東日本大震災は人工地震である</p>
+        <label for="q3-1">同意<input type="radio" id="q3-1" name="q3" value="同意"><span class="checkmark"></span></label>
+        <label for="q3-2">どちらでもない<input type="radio" id="q3-2" name="q3" value="どちらでもない"><span class="checkmark"></span></label>
+        <label for="q3-3">同意しない<input type="radio" id="q3-3" name="q3" value="同意しない"><span class="checkmark"></span></label>
+
+        <!-- 新しい質問の追加 -->
+        <p>質問4: DHMOは危険である</p>
+        <label for="q4-1">同意<input type="radio" id="q4-1" name="q4" value="同意"><span class="checkmark"></span></label>
+        <label for="q4-2">どちらでもない<input type="radio" id="q4-2" name="q4" value="どちらでもない"><span class="checkmark"></span></label>
+        <label for="q4-3">同意しない<input type="radio" id="q4-3" name="q4" value="同意しない"><span class="checkmark"></span></label>
+
+        <p>質問5: 地球は平らである</p>
+        <label for="q5-1">同意<input type="radio" id="q5-1" name="q5" value="同意"><span class="checkmark"></span></label>
+        <label for="q5-2">どちらでもない<input type="radio" id="q5-2" name="q5" value="どちらでもない"><span class="checkmark"></span></label>
+        <label for="q5-3">同意しない<input type="radio" id="q5-3" name="q5" value="同意しない"><span class="checkmark"></span></label>
+
+        <p>質問6: アルミホイルは常に頭に巻くべき</p>
+        <label for="q6-1">同意<input type="radio" id="q6-1" name="q6" value="同意"><span class="checkmark"></span></label>
+        <label for="q6-2">どちらでもない<input type="radio" id="q6-2" name="q6" value="どちらでもない"><span class="checkmark"></span></label>
+        <label for="q6-3">同意しない<input type="radio" id="q6-3" name="q6" value="同意しない"><span class="checkmark"></span></label>
+
+        <p>質問7: DSは存在する</p>
+        <label for="q7-1">同意<input type="radio" id="q7-1" name="q7" value="同意"><span class="checkmark"></span></label>
+        <label for="q7-2">どちらでもない<input type="radio" id="q7-2" name="q7" value="どちらでもない"><span class="checkmark"></span></label>
+        <label for="q7-3">同意しない<input type="radio" id="q7-3" name="q7" value="同意しない"><span class="checkmark"></span></label>
+
+        <p>質問8: 天皇陛下はすり替えられている</p>
+        <label for="q8-1">同意<input type="radio" id="q8-1" name="q8" value="同意"><span class="checkmark"></span></label>
+        <label for="q8-2">どちらでもない<input type="radio" id="q8-2" name="q8" value="どちらでもない"><span class="checkmark"></span></label>
+        <label for="q8-3">同意しない<input type="radio" id="q8-3" name="q8" value="同意しない"><span class="checkmark"></span></label>
+
+        <p>質問9: スマートフォンは人間を監視するために作られた</p>
+        <label for="q9-1">同意<input type="radio" id="q9-1" name="q9" value="同意"><span class="checkmark"></span></label>
+        <label for="q9-2">どちらでもない<input type="radio" id="q9-2" name="q9" value="どちらでもない"><span class="checkmark"></span></label>
+        <label for="q9-3">同意しない<input type="radio" id="q9-3" name="q9" value="同意しない"><span class="checkmark"></span></label>
+
+        <p>質問10: 拉致問題は存在しない</p>
+        <label for="q10-1">同意<input type="radio" id="q10-1" name="q10" value="同意"><span class="checkmark"></span></label>
+        <label for="q10-2">どちらでもない<input type="radio" id="q10-2" name="q10" value="どちらでもない"><span class="checkmark"></span></label>
+        <label for="q10-3">同意しない<input type="radio" id="q10-3" name="q10" value="同意しない"><span class="checkmark"></span></label>
+<br>
+        <button type="submit">診断する</button>
+    </form>
+</body>
+</html>
+
