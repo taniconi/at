@@ -1,14 +1,76 @@
-<meta http-equiv="Content-Style-Type" content="text/css">
+<!DOCTYPE html>
 <html lang="ja">
-  <link rel="icon" href="files/favicon.ico" />
 <head>
-<meta charset="Shift_JIS">
-<title>あまのてれんのホームページ</title>
-<script type="text/javascript" src="files/c7fa7451-6f95-4815-ac32-b8cc2537837a" data-awssuidacr="あまのてれんのホームページ"></script></head>
-<frameset cols="18,82">
-  <frame src="files/menu.html" marginheight="0" marginwidth="0" scrolling="auto" name="left">
-  <frame src="files/top.html" marginheight="0" marginwidth="0" scrolling="auto" name="right">
-  <noframes>
-  <body></body>
-  </noframes>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>甘乃てれん</title>
+    <link rel="icon" href="favicon1.ico" type="image/x-icon"> <!-- favicon.icoを追加 -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        .header {
+            width: 100%;
+            height: auto;
+            border-radius: 30px; /* 角丸のスタイルを追加 */
+        }
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-top: 20px;
+        }
+        .social-links {
+            margin-top: 20px;
+        }
+        .social-links img {
+            margin: 0 10px;
+            width: 30px;
+            height: 30px;
+        }
+        .introduction {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        .name {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .footer {
+            margin-top: 40px;
+            font-size: 14px;
+            color: #888;
+        }
+    </style>
+    <script>
+        let clickCount = 0;
+        function handleAvatarClick() {
+            clickCount++;
+            if (clickCount === 5) {
+                if (confirm('旧サイトに戻りますか？')) {
+                    window.location.href = 'https://ta2m.com/old';
+                }
+                clickCount = 0; // リセット
+            }
+        }
+    </script>
+</head>
+<body>
+    <img src="header.png" alt="ヘッダー画像" class="header" onclick="handleAvatarClick()">
+    <img src="avatar.jpg" alt="私の顔写真" class="avatar" onclick="handleAvatarClick()">
+    <div class="introduction">
+        <p class="name">甘乃てれん</p>
+        <p>趣味でVTuberやってます。</p>
+    </div>
+    <div class="social-links">
+        <a href="https://www.youtube.com/@ama_telen" target="_blank"><img src="youtube.svg" alt="YouTube"></a>
+        <a href="https://www.twitch.tv/ama_telen" target="_blank"><img src="twitch.svg" alt="Twitch"></a>
+        <a href="https://twitter.com/@ama_telen" target="_blank"><img src="x.svg" alt="Twitter"></a>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 Telen Amano. All rights reserved.</p>
+    </div>
+</body>
 </html>
